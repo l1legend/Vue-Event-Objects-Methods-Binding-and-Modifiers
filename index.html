@@ -14,26 +14,28 @@
   </head>
   <body>
     <header>
-      <h1>Real Time Cells Optimization</h1>
+      <h1>Real Time DNA Optimization</h1>
     </header>
     <section id="events">
       <h2>Current Biological Age Equivalency</h2>
       <button v-on:click="add(1)">Add Age</button>
       <button v-on:click="reduce(2)">Reverse Age</button>
       <p v-once>Starting Age: {{ counter }}</p>
-      <p>Enhanced Age: {{ counter }}</p>
+      <p>Enhanced Genome Age: {{ counter }}</p>
       <input
         type="text"
-        v-on:input="setName($event, 'Min')"
-        //keyup.enter="confirmInput()"
+        v-model="userInput"
+        //v-bind:value="userInput"
+        v-on:keyup="saveInput"
+        v-on:keyup.enter="confirmInput"
       />
-      <p>Your Name: {{ name }}</p> 
-      <!-- <p>Your Name: {{ name }}</p> -->
+      <button v-on:click="resetInput">Reset Input</button>
+      <p>Your Name: {{ userInput }}</p> 
+
       <form v-on:submit.prevent="submitForm()">
-        <input type="text" />
         <button>Sign Up</button>
       </form>
-      <img v-bind:src="imageUrl" />
+        <img v-bind:src="imageUrl" />
     </section>
   </body>
 </html>

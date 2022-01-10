@@ -2,22 +2,26 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 35,
-      name: '',
-      // confirmedName: '',
+      userInput: '',
+      confirmInput: '',
       imageUrl: 'images/human_genome.jpg'
     };
   },
   methods: {
     confirmInput() {
-      this.confirmName = this.name;
+      this.confirmInput = this.userInput;
     },
 
     submitForm() {
       alert('Submitted!');
     },
 
-    setName(event, lastName) {
-      this.name = event.target.value + ' ' + lastName;
+    saveInput(event) {
+      this.userInput = event.target.value;
+    },
+
+    resetInput() {
+      this.userInput = '';
     },
 
     add(num) {
