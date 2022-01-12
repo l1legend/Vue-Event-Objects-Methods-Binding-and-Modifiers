@@ -13,6 +13,9 @@ const app = Vue.createApp({
       if (value < 19){
         this.counter = 19;
       }
+      if (value >= 39){
+        this.counter = 39;
+      }
     }
   },
   computed: {
@@ -24,19 +27,19 @@ const app = Vue.createApp({
     }
   },
   methods: {
-    outputFullname() {
-      if (this.name === ''){
-        return '';
-      }
-      return this.name + ' ' + 'Min';
-    },
+    // outputFullname() {
+    //   if (this.name === ''){
+    //     return '';
+    //   }
+    //   return this.name + ' ' + this.lastName;
+    // },
 
     confirmInput() {
       this.confirmInput = this.name;
     },
 
     submitForm() {
-      alert('Submitted!');
+      alert('Age modification has been applied!');
     },
 
     saveInput(event) {
