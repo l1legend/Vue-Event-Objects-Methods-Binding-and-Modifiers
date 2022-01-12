@@ -8,6 +8,13 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    outputFullname() {
+      if (this.userInput === ''){
+        return '';
+      }
+      return this.userInput + ' ' + 'Min';
+    },
+
     confirmInput() {
       this.confirmInput = this.userInput;
     },
@@ -30,7 +37,12 @@ const app = Vue.createApp({
     },
 
     reduce(num) {
-      this.counter = this.counter - num; 
+      if (this.counter > 19 ){
+        this.counter = this.counter - num; 
+      } else {
+        this.counter = 19;
+      }
+
     }
   }
 });

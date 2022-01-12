@@ -18,8 +18,8 @@
     </header>
     <section id="events">
       <h2>Current Biological Age Equivalency</h2>
-      <button v-on:click="add(1)">Add Age</button>
-      <button v-on:click="reduce(2)">Reverse Age</button>
+      <button v-on:click="add(1)">Add Age -> </button>
+      <button v-on:click="reduce(1)">Reverse Age <- </button>
       <p v-once>Starting Age: {{ counter }}</p>
       <p>Enhanced Genome Age: {{ counter }}</p>
       <input
@@ -30,8 +30,8 @@
         v-on:keyup.enter="confirmInput"
       />
       <button v-on:click="resetInput">Reset Input</button>
-      <p>Your Name: {{ userInput }}</p> 
-
+      <!-- <p>Your Name: {{ userInput }}</p>  -->
+      <p>Your Name: {{ outputFullname() }}</p>
       <form v-on:submit.prevent="submitForm()">
         <button>Sign Up</button>
       </form>
