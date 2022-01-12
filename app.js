@@ -2,21 +2,37 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 35,
-      userInput: '',
+      name: '',
+      lastName: '',
       confirmInput: '',
       imageUrl: 'images/human_genome.jpg'
     };
   },
-  methods: {
-    outputFullname() {
-      if (this.userInput === ''){
+  watch: {
+    counter(value) {
+      if (value < 19){
+        this.counter = 19;
+      }
+    }
+  },
+  computed: {
+    fullname() {
+      if (this.name === '' || this.lastName === ''){
         return '';
       }
-      return this.userInput + ' ' + 'Min';
+      return this.name + ' ' + this.lastName;
+    }
+  },
+  methods: {
+    outputFullname() {
+      if (this.name === ''){
+        return '';
+      }
+      return this.name + ' ' + 'Min';
     },
 
     confirmInput() {
-      this.confirmInput = this.userInput;
+      this.confirmInput = this.name;
     },
 
     submitForm() {
@@ -24,11 +40,12 @@ const app = Vue.createApp({
     },
 
     saveInput(event) {
-      this.userInput = event.target.value;
+      this.name = event.target.value;
     },
 
     resetInput() {
-      this.userInput = '';
+      this.name = '';
+      this.lastName = '';
     },
 
     add(num) {
@@ -37,12 +54,7 @@ const app = Vue.createApp({
     },
 
     reduce(num) {
-      if (this.counter > 19 ){
-        this.counter = this.counter - num; 
-      } else {
-        this.counter = 19;
-      }
-
+      this.counter = this.counter - num; 
     }
   }
 });

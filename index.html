@@ -18,24 +18,28 @@
     </header>
     <section id="events">
       <h2>Current Biological Age Equivalency</h2>
-      <button v-on:click="add(1)">Add Age -> </button>
-      <button v-on:click="reduce(1)">Reverse Age <- </button>
+      <button @click="add(1)">Add Age -> </button>
+      <button @click="reduce(1)">Reverse Age <- </button>
       <p v-once>Starting Age: {{ counter }}</p>
       <p>Enhanced Genome Age: {{ counter }}</p>
       <input
         type="text"
-        v-model="userInput"
-        //v-bind:value="userInput"
+        v-model="name"
         v-on:keyup="saveInput"
         v-on:keyup.enter="confirmInput"
       />
-      <button v-on:click="resetInput">Reset Input</button>
-      <!-- <p>Your Name: {{ userInput }}</p>  -->
-      <p>Your Name: {{ outputFullname() }}</p>
+      <input
+        type="text"
+        v-model="lastName"
+      />
+      <button @click="resetInput">Reset Input</button>
+
+      <!-- <p>Your Name: {{ outputFullname() }}</p> -->
+      <p>Your Name: {{ fullname }}</p> 
       <form v-on:submit.prevent="submitForm()">
         <button>Sign Up</button>
       </form>
-        <img v-bind:src="imageUrl" />
+        <img :src="imageUrl" />
     </section>
   </body>
 </html>
